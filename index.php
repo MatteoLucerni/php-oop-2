@@ -46,14 +46,12 @@ $products = [
                         <?php if ($product instanceof Food) : ?>
                             <p><?= $product->getIngredients() ?></p>
                             <p><?= $product->getWeight() ?></p>
-                        <?php endif ?>
-                        <!-- Se è un accessorio -->
-                        <?php if ($product instanceof Accessory) : ?>
+                            <!-- Se è un accessorio -->
+                        <?php elseif ($product instanceof Accessory) : ?>
                             <p><?= $product->getMaterial() ?></p>
                             <p><?= $product->getSize() ?></p>
-                        <?php endif ?>
-                        <!-- Se è un gioco -->
-                        <?php if ($product instanceof Toy) : ?>
+                            <!-- Se è un gioco -->
+                        <?php else : ?>
                             <p><?= $product->getFeature() ?></p>
                             <p><?= $product->getSize() ?></p>
                         <?php endif ?>
