@@ -1,6 +1,5 @@
 <?php
 
-
 class Product
 {
     private $title;
@@ -34,7 +33,7 @@ class Product
 
     public function setImage($image)
     {
-        if ($image) return;
+        if (!$image) return;
         else $this->image = $image;
     }
 
