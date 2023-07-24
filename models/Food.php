@@ -7,9 +7,9 @@ class Food extends Product
     private $ingredients;
     private $weight;
 
-    public function __construct($title, $image, $price, $ingredients, $weight)
+    public function __construct($type, $title, $image, $price, $ingredients, $weight)
     {
-        parent::__construct($title, $image, $price);
+        parent::__construct($type, $title, $image, $price);
         $this->setIngredients($ingredients);
         $this->setWeight($weight);
     }

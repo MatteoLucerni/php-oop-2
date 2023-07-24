@@ -2,15 +2,30 @@
 
 class Product
 {
+    private $type;
     private $title;
     private $image;
     private $price;
 
-    public function __construct($title, $image, $price)
+    public function __construct($type, $title, $image, $price)
     {
+        $this->setType($type);
         $this->setTitle($title);
         $this->setImage($image);
         $this->setPrice($price);
+    }
+
+    // type
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type)
+    {
+        if (!strlen($type) && ($type === 'Cane' || $type === 'Gatto' || $type === 'Pesci' || $type === 'Ucelli')) return;
+        else $this->type = $type;
     }
 
     // title

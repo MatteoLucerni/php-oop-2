@@ -7,9 +7,9 @@ class Toy extends Product
     private $feature;
     private $size;
 
-    public function __construct($title, $image, $price, $feature, $size = 'ND')
+    public function __construct($type, $title, $image, $price, $feature, $size = 'ND')
     {
-        parent::__construct($title, $image, $price);
+        parent::__construct($type, $title, $image, $price);
         $this->setFeature($feature);
         $this->setSize($size);
     }
