@@ -5,7 +5,7 @@ include_once __DIR__ . '/models/Accessory.php';
 include_once __DIR__ . '/models/Toy.php';
 
 $products = [
-    new Food('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 99, ['pollo', 'manzo', 'spinacina'], 50),
+    new Food('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/270797/Monge-All-Breeds-Adult-Salmone-e-Riso-12Kg.jpg?v=1776606579', 99, ['pollo', 'manzo', 'spinacina'], 50),
     new Food('Almo Nature Holistic Maintenance Medium Large Tonno e Riso', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 78, ['manzo'], 40),
     new Food('Almo Nature Cat Daily Lattina', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 44, ['pollo', 'spinacina'], 20),
     new Food('Mangime per Pesci Guppy in Fiocchi', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 55, ['cereali', 'Alghe', 'Lieviti'], 30),
