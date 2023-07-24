@@ -1,15 +1,15 @@
 <?php
 include_once __DIR__ . '/models/Product.php';
 include_once __DIR__ . '/models/Food.php';
-
-$first_product = new Food('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 99, ['pollo', 'manzo', 'spinacina'], 50);
-$second_product = new Food('Almo Nature Holistic Maintenance Medium Large Tonno e Riso', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 78, ['manzo'], 40);
-$third_product = new Food('Almo Nature Cat Daily Lattina', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 44, ['pollo', 'spinacina'], 20);
+include_once __DIR__ . '/models/Accessories.php';
 
 $products = [
-    $first_product,
-    $second_product,
-    $third_product
+    new Food('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 99, ['pollo', 'manzo', 'spinacina'], 50),
+    new Food('Almo Nature Holistic Maintenance Medium Large Tonno e Riso', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 78, ['manzo'], 40),
+    new Food('Almo Nature Cat Daily Lattina', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 44, ['pollo', 'spinacina'], 20),
+    new Food('Mangime per Pesci Guppy in Fiocchi', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 55, ['cereali', 'Alghe', 'Lieviti'], 30),
+    new Accessories('Voliera Wilma in Legno', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 184.99, 'Legno', 'M: L 83 x P 67 x H 153 cm'),
+    new Accessories('Cartucce Filtranti per Filtro EasyCrystal', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 2.29, 'Materiale espanso')
 ];
 ?>
 
@@ -32,7 +32,7 @@ $products = [
         <div class="row">
             <?php foreach ($products as $product) : ?>
                 <div class="col-4">
-                    <div class="card p-5 mb-5 bg-light">
+                    <div class="card p-4 mb-5 bg-light">
                         <img src="<?= $product->getImage() ?>" alt="<?= $product->getTitle() ?>">
                         <h5><?= $product->getTitle() ?></h5>
                         <p><?= $product->getPrice() ?></p>
@@ -40,6 +40,11 @@ $products = [
                         <?php if ($product instanceof Food) : ?>
                             <p><?= $product->getIngredients() ?></p>
                             <p><?= $product->getWeight() ?></p>
+                        <?php endif ?>
+                        <!-- Se è un accessorio -->
+                        <?php if ($product instanceof Accessories) : ?>
+                            <p><?= $product->getMaterial() ?></p>
+                            <p><?= $product->getSize() ?></p>
                         <?php endif ?>
                     </div>
                 </div>
