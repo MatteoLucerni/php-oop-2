@@ -28,14 +28,14 @@ $products = [
     <title>BoolShop</title>
 </head>
 
-<body>
+<body class="bg-light">
     <div class="container my-5">
         <h1 class="text-center fw-bold mb-5">BOOLSHOP</h1>
 
         <div class="row align-items-stretch">
             <?php foreach ($products as $product) : ?>
                 <div class="col-12 col-md-6 col-lg-4 py-3">
-                    <div class="card h-100 p-4 bg-light">
+                    <div class="card h-100 p-4">
                         <img src="<?= $product->getImage() ?>" alt="<?= $product->getTitle() ?>">
                         <h5><?= $product->getTitle() ?></h5>
                         <p><?= $product->getType() ?></p>
