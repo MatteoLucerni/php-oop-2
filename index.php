@@ -1,15 +1,18 @@
 <?php
 include_once __DIR__ . '/models/Product.php';
 include_once __DIR__ . '/models/Food.php';
-include_once __DIR__ . '/models/Accessories.php';
+include_once __DIR__ . '/models/Accessory.php';
+include_once __DIR__ . '/models/Toy.php';
 
 $products = [
     new Food('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 99, ['pollo', 'manzo', 'spinacina'], 50),
     new Food('Almo Nature Holistic Maintenance Medium Large Tonno e Riso', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 78, ['manzo'], 40),
     new Food('Almo Nature Cat Daily Lattina', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 44, ['pollo', 'spinacina'], 20),
     new Food('Mangime per Pesci Guppy in Fiocchi', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 55, ['cereali', 'Alghe', 'Lieviti'], 30),
-    new Accessories('Voliera Wilma in Legno', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 184.99, 'Legno', 'M: L 83 x P 67 x H 153 cm'),
-    new Accessories('Cartucce Filtranti per Filtro EasyCrystal', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 2.29, 'Materiale espanso')
+    new Accessory('Voliera Wilma in Legno', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 184.99, 'Legno', 'M: L 83 x P 67 x H 153 cm'),
+    new Accessory('Cartucce Filtranti per Filtro EasyCrystal', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 2.29, 'Materiale espanso'),
+    new Toy('Kong Classic', 'https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg', 13.49, 'Galleggia e rimbalza', '8,5 cm x 10 cm'),
+    new Toy('Topini di peluche Trixie', 'https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg', 4.99, 'Morbido con codina in corda', '8,5 cm x 10 cm')
 ];
 ?>
 
@@ -42,8 +45,13 @@ $products = [
                             <p><?= $product->getWeight() ?></p>
                         <?php endif ?>
                         <!-- Se è un accessorio -->
-                        <?php if ($product instanceof Accessories) : ?>
+                        <?php if ($product instanceof Accessory) : ?>
                             <p><?= $product->getMaterial() ?></p>
+                            <p><?= $product->getSize() ?></p>
+                        <?php endif ?>
+                        <!-- Se è un gioco -->
+                        <?php if ($product instanceof Toy) : ?>
+                            <p><?= $product->getFeature() ?></p>
                             <p><?= $product->getSize() ?></p>
                         <?php endif ?>
                     </div>
