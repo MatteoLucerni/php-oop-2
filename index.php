@@ -1,9 +1,10 @@
 <?php
-include_once './models/Product.php';
+include_once __DIR__ . '/models/Product.php';
+include_once __DIR__ . '/models/Food.php';
 
-$first_product = new Product('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 99);
-$second_product = new Product('Almo Nature Holistic Maintenance Medium Large Tonno e Riso', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 78);
-$third_product = new Product('Almo Nature Cat Daily Lattina', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 44);
+$first_product = new Food('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 99, ['pollo', 'manzo', 'spinacina'], 50);
+$second_product = new Food('Almo Nature Holistic Maintenance Medium Large Tonno e Riso', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 78, ['manzo'], 40);
+$third_product = new Food('Almo Nature Cat Daily Lattina', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 44, ['pollo', 'spinacina'], 20);
 
 $products = [
     $first_product,
@@ -35,6 +36,11 @@ $products = [
                         <img src="<?= $product->getImage() ?>" alt="<?= $product->getTitle() ?>">
                         <h5><?= $product->getTitle() ?></h5>
                         <p><?= $product->getPrice() ?></p>
+                        <!-- Se è cibo -->
+                        <?php if ($product instanceof Food) : ?>
+                            <p><?= $product->getIngredients() ?></p>
+                            <p><?= $product->getWeight() ?></p>
+                        <?php endif ?>
                     </div>
                 </div>
             <?php endforeach ?>

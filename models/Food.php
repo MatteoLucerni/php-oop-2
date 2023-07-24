@@ -1,14 +1,15 @@
 <?php
 
-require_once './Product.php';
+require_once __DIR__ . '/Product.php';
 
 class Food extends Product
 {
     private $ingredients;
     private $weight;
 
-    public function __construct($ingredients, $weight)
+    public function __construct($title, $image, $price, $ingredients, $weight)
     {
+        parent::__construct($title, $image, $price);
         $this->setIngredients($ingredients);
         $this->setWeight($weight);
     }
@@ -18,13 +19,13 @@ class Food extends Product
     {
         $ing_list = '';
         foreach ($this->ingredients as $ing) {
-            $ing_list .= $ing . ',';
+            $ing_list .= $ing . ', ';
         }
 
         return 'Ingredienti: ' . $ing_list;
     }
 
-    public function setIngredients(array $ingredients)
+    public function setIngredients($ingredients)
     {
         if (!count($ingredients)) return;
         else $this->ingredients = $ingredients;
